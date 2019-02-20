@@ -1,8 +1,8 @@
-#Tic Tac Toe Game using Javascript
+# Tic Tac Toe Game using Javascript
 
-##Approaches Tried:
+## Approaches Tried:
 
-######Approach 1:
+###### Approach 1:
 
 Getting a input from the user in alert box and displaying the result once the game gets over, Pls Check firstApproach.js file
 
@@ -16,7 +16,7 @@ Drawbacks:
 5. There is no meaningful name for the functions
 
 
-######Approach 2:
+###### Approach 2:
 
 Fixing the drawbacks of the codes by removing the unwanted conditional statements
 Pls check hte tictoe.js file
@@ -27,7 +27,7 @@ Drawbacks:
 1. There is no view for the board
 2. User doesn't know which players turn it is
 
-######Approach 3:
+###### Approach 3:
 Adding a view using html and combined the logical part
 
 Steps Done:
@@ -47,7 +47,7 @@ Refactors Done:
 5. Added the Option to know which player is playing
 
 
-##Learnings From this example:
+## Learnings From this example:
 1. Before start don't think in terms of user input.Think it in the form of a simple example Like
   - First Collect the requirements
   - Analyze the requirements
@@ -59,6 +59,6 @@ Refactors Done:
    - Align the codes
    - Check all the standards are meet.  
 
-##Things to know:
+## Things to know:
 1. Is it possible to create a 2*2 array
 2. How to get input from a javascript without a UI (Using prompt it is possible but only in googlechrome)   
