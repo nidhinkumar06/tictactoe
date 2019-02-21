@@ -4,7 +4,7 @@
     <p id="playerTurn"></p>
 </div>
 <script type="text/javascript">
-let a = [1,2,3,4,5,6,7,8,9];
+let tiles = Array(9);
 let currentPlayer = "X";
 let turns = 0;
 
@@ -12,7 +12,7 @@ let turns = 0;
 
 let table = "<table class=\"table table-dark mt-2 mx-3\" id=\"mytable\" cellpadding=\"0\" cellspacing=\"0\" style=\" width:100px;\"><tbody><tr>";
 
-for (let i = 1; i <= a.length; i++) {
+for (let i = 1; i <= tiles.length; i++) {
   if (i % 3 == 1 && i != 1) {
     table += "</tr><tr>";
   }
@@ -31,10 +31,9 @@ function addDataToBoard(data) {
     let board = document.getElementById(`button${data}`);
     if (board.value === "") {
         board.value = currentPlayer;
-        a[data-1] = currentPlayer;
+        tiles[data-1] = currentPlayer;
         turns++;
         checkResult(currentPlayer);
-        togglePlayer();
     } else {
         alert('Invalid Move');
     }
@@ -52,20 +51,22 @@ function togglePlayer() {
 
 
 function checkResult(user) {
-    if ((a[0] === user && a[1] === user && a[2] === user) ||
-    (a[3] === user && a[4] === user && a[5] === user) ||
-    (a[6] === user && a[7] === user && a[8] === user) ||
-    (a[0] === user && a[3]=== user && a[6] === user) ||
-    (a[1] === user && a[4]=== user && a[7] === user) ||
-    (a[2] === user && a[5]=== user && a[8] === user) ||
-    (a[0] === user && a[4]=== user && a[8] === user) ||
-    (a[2] === user && a[4]=== user && a[6] === user)
+    if ((tiles[0] === user && tiles[1] === user && tiles[2] === user) ||
+    (tiles[3] === user && tiles[4] === user && tiles[5] === user) ||
+    (tiles[6] === user && tiles[7] === user && tiles[8] === user) ||
+    (tiles[0] === user && tiles[3]=== user && tiles[6] === user) ||
+    (tiles[1] === user && tiles[4]=== user && tiles[7] === user) ||
+    (tiles[2] === user && tiles[5]=== user && tiles[8] === user) ||
+    (tiles[0] === user && tiles[4]=== user && tiles[8] === user) ||
+    (tiles[2] === user && tiles[4]=== user && tiles[6] === user)
     ) {
-        alert(`${user} wins`);
+        displayResult(`Player ${user} wins`);
         refreshBoard();
     } else if(turns === 9){
-      alert('Match Draw');
-      refreshBoard();
+        displayResult('Match Draws');
+        refreshBoard();
+    } else {
+      togglePlayer();
     }
 
 }
@@ -81,5 +82,10 @@ function refreshBoard() {
 //display which player is playing
 function displayPlayerTurn() {
   document.getElementById('playerTurn').innerHTML = `Player ${currentPlayer} Turn`;
+}
+
+//display result
+function displayResult(user) {
+    document.getElementById('playerTurn').innerHTML = user;
 }
 </script>
